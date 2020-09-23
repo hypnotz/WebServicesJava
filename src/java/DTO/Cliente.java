@@ -80,8 +80,6 @@ public class Cliente {
         this.correo = correo;
     }
 
-    
-
     public int getTelefono() {
         return telefono;
     }

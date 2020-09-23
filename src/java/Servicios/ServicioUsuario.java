@@ -66,11 +66,6 @@ public class ServicioUsuario {
         
     }
     
-    
-    
-    
-    
-    
        @WebMethod(operationName = "ActualizarUsuario")
         public void actualizarUsuario(@WebParam(name = "V_ID_USUARIO") int idUsuario,@WebParam(name = "V_NOMBRE_USUARIO") String nombreUsuario, @WebParam(name = "V_CONTRASENA") String contrasena, @WebParam(name = "V_ID_PRIVILEGIO") int idPrivilegio,
                 @WebParam(name = "V_ID_ESTADO") int idEstado) {
