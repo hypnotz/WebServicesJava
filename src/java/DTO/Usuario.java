@@ -15,6 +15,15 @@ public class Usuario {
     private String nombreUsuario;
     private String contrasena;
     private int idPrivilegio;
+    private int idEstado;
+
+    public int getIdEstado() {
+        return idEstado;
+    }
+
+    public void setIdEstado(int idEstado) {
+        this.idEstado = idEstado;
+    }
 
     public int getIdUsuario() {
         return idUsuario;

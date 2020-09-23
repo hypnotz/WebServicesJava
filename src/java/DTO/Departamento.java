@@ -13,7 +13,6 @@ public class Departamento {
         private int idDepto;
         private String direccion;
         private int cantidadPiezas;
-        private int idEstado;
         private int cantidadBanos;
         private String condiciones;
         private int idTipoEstado;
@@ -44,13 +43,7 @@ public class Departamento {
         this.cantidadPiezas = cantidadPiezas;
     }
 
-    public int getIdEstado() {
-        return idEstado;
-    }
 
-    public void setIdEstado(int idEstado) {
-        this.idEstado = idEstado;
-    }
 
     public int getCantidadBanos() {
         return cantidadBanos;

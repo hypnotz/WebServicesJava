@@ -16,10 +16,7 @@ import java.sql.DriverManager;
  * @author hypnotz
  */
 public class NegocioCliente {
-        private static Connection conn = null;
-        private static String login = "aRRIENDOTEMPORADA";
-        private static String clave = "123";
-        private static String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        
         
         
         

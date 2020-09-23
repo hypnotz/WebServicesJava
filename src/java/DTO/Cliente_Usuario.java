@@ -5,14 +5,12 @@
  */
 package DTO;
 
-import java.sql.Date;
-
 /**
  *
  * @author hypnotz
  */
-public class Cliente {
-
+public class Cliente_Usuario {
+    
     private int idCliente;
     private String rut;
     private String nombres;
@@ -20,26 +18,22 @@ public class Cliente {
     private String apellidoMaterno;
     private String correo;
     private String fechaNacimiento;
-    private int telefono;
     private int idUsuario;
-    
+    private String nombreUsuario;
+    private String contrasena;
+    private int idPrivilegio;
+    private int idEstado;
+     private int telefono;
 
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
+    public int getTelefono() {
+        return telefono;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
     }
-    
+   
 
-    public String getApellidoMaterno() {
-        return apellidoMaterno;
-    }
-
-    public void setApellidoMaterno(String apellidoMaterno) {
-        this.apellidoMaterno = apellidoMaterno;
-    }
     public int getIdCliente() {
         return idCliente;
     }
@@ -72,6 +66,14 @@ public class Cliente {
         this.apellidoPaterno = apellidoPaterno;
     }
 
+    public String getApellidoMaterno() {
+        return apellidoMaterno;
+    }
+
+    public void setApellidoMaterno(String apellidoMaterno) {
+        this.apellidoMaterno = apellidoMaterno;
+    }
+
     public String getCorreo() {
         return correo;
     }
@@ -80,14 +82,12 @@ public class Cliente {
         this.correo = correo;
     }
 
-    
-
-    public int getTelefono() {
-        return telefono;
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public int getIdUsuario() {
@@ -98,4 +98,35 @@ public class Cliente {
         this.idUsuario = idUsuario;
     }
 
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public int getIdPrivilegio() {
+        return idPrivilegio;
+    }
+
+    public void setIdPrivilegio(int idPrivilegio) {
+        this.idPrivilegio = idPrivilegio;
+    }
+
+    public int getIdEstado() {
+        return idEstado;
+    }
+
+    public void setIdEstado(int idEstado) {
+        this.idEstado = idEstado;
+    }
 }
