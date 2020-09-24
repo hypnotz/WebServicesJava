@@ -10,6 +10,12 @@
     <service name="ServicioRegion">
       <implementation-class>Servicios.ServicioRegion</implementation-class>
     </service>
+    <service name="ServicioTipoEstado">
+      <implementation-class>Servicios.ServicioTipoEstado</implementation-class>
+    </service>
+    <service name="ServicioComuna">
+      <implementation-class>Servicios.ServicioComuna</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>
