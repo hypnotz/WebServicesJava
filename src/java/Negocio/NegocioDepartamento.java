@@ -29,13 +29,11 @@ public class NegocioDepartamento {
           
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
             
-            
             conn.setAutoCommit(true);
             String sql = "{call SP_AgregarDepartamento(?,?,?,?,?,?,?)}";
             callableStatement = conn.prepareCall(sql);
             callableStatement.setString("v_DIRECCION", departamento.getDireccion());
             callableStatement.setInt("v_CANTIDAD_PIEZAS", departamento.getCantidadPiezas());
-
             callableStatement.setInt("v_CANTIDAD_BAÑOS", departamento.getCantidadBanos());
             callableStatement.setString("v_CONDICIONES", departamento.getCondiciones());
             callableStatement.setInt("v_ID_TIPO_ESTADO", departamento.getIdTipoEstado());
