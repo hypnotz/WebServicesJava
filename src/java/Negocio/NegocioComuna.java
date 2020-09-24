@@ -18,36 +18,42 @@ import oracle.jdbc.OracleTypes;
  * @author hypnotz
  */
 public class NegocioComuna {
-    
-    public ArrayList<Comuna> listarComuna(){
+     public ArrayList<Region> listarRegion(){
         ConexionOracle conexionOracle = new ConexionOracle();
         Connection conn = conexionOracle.getConnection();
         CallableStatement callableStatement = null;
-        Comuna auxComuna = new Comuna();
-        ArrayList<Comuna> auxLista = new ArrayList<Comuna>();
+        Region auxRegion = new Region();
+        ArrayList<Region> auxLista = new ArrayList<Region>();
 
         try {
-            String sql = "{call SP_LISTAR_COMUNA(?,?,?)}";
+            String sql = "{call SP_LISTAR_REGION(?,?,?)}";
             callableStatement = conn.prepareCall(sql);
             callableStatement.registerOutParameter(1, OracleTypes.CURSOR);
             callableStatement.registerOutParameter(2, java.sql.Types.INTEGER);
             callableStatement.registerOutParameter(3, java.sql.Types.VARCHAR);
-
             callableStatement.executeQuery();
             ResultSet rs = (ResultSet) callableStatement.getObject(1);
 
             while (rs.next()){
-                auxComuna = new Comuna();
-                auxComuna.setIdComuna(rs.getInt(1));
-                auxComuna.setNombreComuna(rs.getString(2));
-                auxComuna.setIdProvincia(rs.getInt(3));
-                auxLista.add(auxComuna);
+                auxRegion = new Region();
+                auxRegion.setIdRegion(rs.getInt(1));
+                auxRegion.setNombreRegion(rs.getString(2));
+                //System.out.println(rs.getString(1));
+                //System.out.println(rs.getString(2));
+                auxLista.add(auxRegion);
             }
+
+
             rs.close();
             conexionOracle.desconexion();
+
         } catch (Exception ex) {
+
         }
+
         return auxLista;
     }
     
-}
+    }
+    
+
