@@ -131,4 +131,28 @@ public class NegocioUsuario {
             ex.printStackTrace();
      }
         }
+ 
+ 
+ public void autenticarUsuario(int idUsuario){
+        
+        ConexionOracle conexionOracle = new ConexionOracle();
+         Connection conn = conexionOracle.getConnection();
+        
+        CallableStatement callableStatement = null;
+        try {
+          
+            DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
+            conn.setAutoCommit(true);
+            String sql = "{call SP_Autenticar_Usuario(?)}";
+            callableStatement = conn.prepareCall(sql);
+            callableStatement.setInt("V_ID_USUARIO", idUsuario);
+
+            callableStatement.executeQuery();
+            callableStatement.close();
+            conn.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+     }
+    }
 }
+

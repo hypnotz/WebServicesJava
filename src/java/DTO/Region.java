@@ -14,8 +14,6 @@ public class Region {
     private int idRegion;
     private String nombreRegion;
 
-   
- 
     public Region(){
         this.idRegion = 0;
         this.nombreRegion = "";

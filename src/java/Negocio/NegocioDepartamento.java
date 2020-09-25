@@ -57,7 +57,6 @@ public class NegocioDepartamento {
         try {
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
             
-            
             conn.setAutoCommit(false);
             String sql = "{call SP_EliminarDepartamento(?)}";
             callableStatement = conn.prepareCall(sql);

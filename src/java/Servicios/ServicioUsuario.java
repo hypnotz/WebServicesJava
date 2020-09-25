@@ -89,4 +89,13 @@ public class ServicioUsuario {
          
          auxNegocioUsuario.eliminarUsuario(idUsuario);
      }
+     
+       @WebMethod(operationName = "autenticarUsuario")
+        public void autenticarUsuario(@WebParam(name = "V_ID_USUARIO") int idUsuario){
+        
+        NegocioUsuario auxNegocioUsuario = new NegocioUsuario();
+
+        auxNegocioUsuario.autenticarUsuario(idUsuario);
+    }
 }
+

@@ -13,6 +13,15 @@
     <service name="ServicioTipoEstado">
       <implementation-class>Servicios.ServicioTipoEstado</implementation-class>
     </service>
+    <service name="ServicioCliente">
+      <implementation-class>Servicios.ServicioCliente</implementation-class>
+    </service>
+    <service name="ServicioComuna">
+      <implementation-class>Servicios.ServicioComuna</implementation-class>
+    </service>
+    <service name="ServicioProvincia">
+      <implementation-class>Servicios.ServicioProvincia</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>

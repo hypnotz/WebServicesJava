@@ -11,16 +11,12 @@ package DTO;
  */
 public class Comuna {
     
-    private int idComuna;
+  private int idComuna;
     private String nombreComuna;
-    private int idProvincia;
 
-    public int getIdProvincia() {
-        return idProvincia;
-    }
-
-    public void setIdProvincia(int idProvincia) {
-        this.idProvincia = idProvincia;
+    public Comuna(){
+        this.idComuna = 0;
+        this.nombreComuna = "";
     }
 
     public int getIdComuna() {
@@ -31,15 +27,14 @@ public class Comuna {
         this.idComuna = idComuna;
     }
 
+
     public String getNombreComuna() {
         return nombreComuna;
     }
 
+
     public void setNombreComuna(String nombreComuna) {
         this.nombreComuna = nombreComuna;
     }
-    @Override
-    public String toString() {
-        return "Comuna{" + "idComuna=" + idComuna + ", nombreComuna=" + nombreComuna + ", idProvincia=" + idProvincia + '}';
-    }
+    
 }

@@ -6,7 +6,7 @@
 package Negocio;
 
 import Conexion.ConexionOracle;
-import DTO.*;
+import DTO.Provincia;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -17,15 +17,15 @@ import oracle.jdbc.OracleTypes;
  *
  * @author hypnotz
  */
-public class NegocioComuna {
+public class NegocioProvincia {
     
-    public ArrayList<Comuna> getComuna(){
+    public ArrayList<Provincia> getProvincia(){
 
         ConexionOracle conexionOracle = new ConexionOracle();
         Connection conn = conexionOracle.getConnection();
         CallableStatement callableStatement = null;
-        Comuna auxComuna = new Comuna();
-        ArrayList<Comuna> auxLista = new ArrayList<Comuna>();
+        Provincia auxProvincia = new Provincia();
+        ArrayList<Provincia> auxLista = new ArrayList<Provincia>();
 
         try {
             String sql = "{call SP_GET_PROVINCIA(?,?,?)}";
@@ -37,12 +37,12 @@ public class NegocioComuna {
             ResultSet rs = (ResultSet) callableStatement.getObject(1);
 
             while (rs.next()){
-                auxComuna = new Comuna();
-                auxComuna.setIdComuna(rs.getInt(1));
-                auxComuna.setNombreComuna(rs.getString(2));
+                auxProvincia = new Provincia();
+                auxProvincia.setIdProvincia(rs.getInt(1));
+                auxProvincia.setNombreProvincia(rs.getString(2));
                 //System.out.println(rs.getString(1));
                 //System.out.println(rs.getString(2));
-                auxLista.add(auxComuna);
+                auxLista.add(auxProvincia);
             }
 
 
@@ -50,49 +50,44 @@ public class NegocioComuna {
             conexionOracle.desconexion();
 
         } catch (Exception ex) {
-
         }
-
         return auxLista;
 
-
     }
-    public ArrayList<Comuna> getComunaById(int idProvincia){
+    
+    public ArrayList<Provincia> getProvinciaById(int idRegion){
 
         ConexionOracle conexionOracle = new ConexionOracle();
         Connection conn = ConexionOracle.getConnection();
         CallableStatement callableStatement = null;
-        Comuna auxComuna = new Comuna();
-        ArrayList<Comuna> auxLista = new ArrayList<Comuna>();
+        Provincia auxProvincia = new Provincia();
+        ArrayList<Provincia> auxLista = new ArrayList<Provincia>();
 
         try {
-            String sql = "{call SP_GET_COMUNA_BY_ID_PROVINCIA(?,?,?,?)}";
+            String sql = "{call SP_LISTAR_PROVINCIA_X_REGION(?,?,?,?)}";
             callableStatement = conn.prepareCall(sql);
             callableStatement.registerOutParameter(1, OracleTypes.CURSOR);
             callableStatement.registerOutParameter(2, java.sql.Types.INTEGER);
             callableStatement.registerOutParameter(3, java.sql.Types.VARCHAR);
-            callableStatement.setInt(4, idProvincia);
+            callableStatement.setInt(4, idRegion);
 
             callableStatement.executeQuery();
             ResultSet rs = (ResultSet) callableStatement.getObject(1);
 
             while (rs.next()){
-                auxComuna = new Comuna();
-                auxComuna.setIdComuna(rs.getInt(1));
-                auxComuna.setNombreComuna(rs.getString(2));
+                auxProvincia = new Provincia();
+                auxProvincia.setIdProvincia(rs.getInt(1));
+                auxProvincia.setNombreProvincia(rs.getString(2));
                 //System.out.println(rs.getString(1));
                 //System.out.println(rs.getString(2));
-                auxLista.add(auxComuna);
+                auxLista.add(auxProvincia);
             }
             rs.close();
             conexionOracle.desconexion();
-
         } catch (Exception ex) {
-            }
-
-        return auxLista;
         }
-    
+        return auxLista;
     }
-    
 
+    
+}
