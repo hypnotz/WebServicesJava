@@ -147,7 +147,9 @@ public class NegocioUsuario {
             callableStatement = conn.prepareCall(sql);
             callableStatement.setInt("V_ID_USUARIO", idUsuario);
 
+            
             callableStatement.executeQuery();
+            
             callableStatement.close();
             conn.close();
         } catch (Exception ex) {
