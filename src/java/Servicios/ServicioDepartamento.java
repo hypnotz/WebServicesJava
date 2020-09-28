@@ -6,7 +6,9 @@
 package Servicios;
 
 import DTO.Departamento;
+import DTO.ListaDepto;
 import Negocio.NegocioDepartamento;
+import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -63,5 +65,10 @@ public class ServicioDepartamento {
       
       auxNegocioDepto.actualizarDepto(auxDepartamento);
     }
-
+    
+     @WebMethod(operationName = "ListarDepto")
+    public ArrayList<ListaDepto> listarDepto(){
+        NegocioDepartamento auxNegocio = new NegocioDepartamento();
+        return auxNegocio.listarDepto();
+    }
 }

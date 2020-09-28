@@ -10,6 +10,9 @@ import DTO.*;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import oracle.jdbc.OracleTypes;
 
 /**
  *
@@ -79,10 +82,8 @@ public class NegocioUsuario {
      }
         }
       
-  
          public void modificarUsuario(Usuario usuario){
-        
-        ConexionOracle conexionOracle = new ConexionOracle();
+            ConexionOracle conexionOracle = new ConexionOracle();
          Connection conn = conexionOracle.getConnection();
         
         
@@ -109,7 +110,6 @@ public class NegocioUsuario {
             ex.printStackTrace();
      }
         }      
-        
  public void eliminarUsuario(int idUsuario){
         
        ConexionOracle conexionOracle = new ConexionOracle();
@@ -132,7 +132,6 @@ public class NegocioUsuario {
      }
         }
  
- 
  public void autenticarUsuario(int idUsuario){
         
         ConexionOracle conexionOracle = new ConexionOracle();
@@ -146,15 +145,31 @@ public class NegocioUsuario {
             String sql = "{call SP_Autenticar_Usuario(?)}";
             callableStatement = conn.prepareCall(sql);
             callableStatement.setInt("V_ID_USUARIO", idUsuario);
-
-            
             callableStatement.executeQuery();
-            
             callableStatement.close();
             conn.close();
         } catch (Exception ex) {
             ex.printStackTrace();
      }
-    }
+ }
+   public void eliminarClienteUsuario(int idUsuario){
+         ConexionOracle conexionOracle = new ConexionOracle();
+         Connection conn = conexionOracle.getConnection();
+        CallableStatement callableStatement = null;
+        try {
+            DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
+            conn.setAutoCommit(false);
+            String sql = "{call SP_EliminarClienteUsuario(?)}";
+            callableStatement = conn.prepareCall(sql);
+            callableStatement.setInt("idUsuario",idUsuario);
+            callableStatement.executeQuery();
+            callableStatement.close();
+            conn.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        }
 }
+
+
 

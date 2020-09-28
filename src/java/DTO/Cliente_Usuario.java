@@ -11,35 +11,26 @@ package DTO;
  */
 public class Cliente_Usuario {
     
-    private int idCliente;
-    private String rut;
-    private String nombres;
-    private String apellidoPaterno;
-    private String apellidoMaterno;
-    private String correo;
-    private String fechaNacimiento;
-    private int idUsuario;
-    private String nombreUsuario;
-    private String contrasena;
-    private int idPrivilegio;
-    private int idEstado;
-     private int telefono;
 
-    public int getTelefono() {
-        return telefono;
+    private int idUsuario; //si
+    private String rut; //si
+    private String nombres; //si
+    private String apellidoPaterno; //si
+    private String apellidoMaterno; //si
+    private String correo; //si
+    private String fechaNacimiento; //si
+    private String nombreUsuario; //si
+    private int idPrivilegio; //si
+    private int telefono; //si
+
+    
+
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }
-   
-
-    public int getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getRut() {
@@ -90,28 +81,12 @@ public class Cliente_Usuario {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
     public String getNombreUsuario() {
         return nombreUsuario;
     }
 
     public void setNombreUsuario(String nombreUsuario) {
         this.nombreUsuario = nombreUsuario;
-    }
-
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
     }
 
     public int getIdPrivilegio() {
@@ -122,11 +97,16 @@ public class Cliente_Usuario {
         this.idPrivilegio = idPrivilegio;
     }
 
-    public int getIdEstado() {
-        return idEstado;
+    public int getTelefono() {
+        return telefono;
     }
 
-    public void setIdEstado(int idEstado) {
-        this.idEstado = idEstado;
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+    
+    @Override
+    public String toString() {
+        return "Cliente_Usuario{" + "idUsuario=" + idUsuario + ", rut=" + rut + ", nombres=" + nombres + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno + ", correo=" + correo + ", fechaNacimiento=" + fechaNacimiento + ", nombreUsuario=" + nombreUsuario + ", idPrivilegio=" + idPrivilegio + ", telefono=" + telefono + '}';
     }
 }

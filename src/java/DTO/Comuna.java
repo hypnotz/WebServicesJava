@@ -14,6 +14,8 @@ public class Comuna {
   private int idComuna;
     private String nombreComuna;
 
+   
+
     public Comuna(){
         this.idComuna = 0;
         this.nombreComuna = "";
@@ -37,4 +39,8 @@ public class Comuna {
         this.nombreComuna = nombreComuna;
     }
     
+     @Override
+    public String toString() {
+        return "Comuna{" + "idComuna=" + idComuna + ", nombreComuna=" + nombreComuna + '}';
+    }
 }

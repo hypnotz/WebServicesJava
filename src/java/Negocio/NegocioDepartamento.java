@@ -7,9 +7,13 @@ package Negocio;
 
 import Conexion.ConexionOracle;
 import DTO.Departamento;
+import DTO.ListaDepto;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import oracle.jdbc.OracleTypes;
 
 /**
  *
@@ -100,6 +104,50 @@ public class NegocioDepartamento {
             ex.printStackTrace();
      }
         }      
+
+        public ArrayList<ListaDepto> listarDepto(){
+        ConexionOracle conexionOracle = new ConexionOracle();
+        Connection conn = conexionOracle.getConnection();
+        CallableStatement callableStatement = null;
+        ListaDepto auxDepartamento = new ListaDepto();
+        ArrayList<ListaDepto> auxLista = new ArrayList<ListaDepto>();
+
+        try {
+            String sql = "{call SP_LISTAR_DEPTO(?,?,?,?,?,?,?,?,?)}";
+            callableStatement = conn.prepareCall(sql);
+            callableStatement.registerOutParameter(1, OracleTypes.CURSOR);
+            callableStatement.registerOutParameter(2, java.sql.Types.INTEGER);
+            callableStatement.registerOutParameter(3, java.sql.Types.VARCHAR);
+            callableStatement.registerOutParameter(4, java.sql.Types.INTEGER);
+            callableStatement.registerOutParameter(5, java.sql.Types.INTEGER);
+            callableStatement.registerOutParameter(6, java.sql.Types.VARCHAR);
+            callableStatement.registerOutParameter(7, java.sql.Types.VARCHAR);
+            callableStatement.registerOutParameter(8, java.sql.Types.VARCHAR);
+            callableStatement.registerOutParameter(9, java.sql.Types.INTEGER);
+            callableStatement.executeQuery();
+            ResultSet rs = (ResultSet) callableStatement.getObject(1);
+
+            while (rs.next()){
+                auxDepartamento = new ListaDepto();
+                auxDepartamento.setIdDepartamento(rs.getInt(1));
+                auxDepartamento.setDireccion(rs.getString(2));
+                auxDepartamento.setCantidadPiezas(rs.getInt(3));
+                auxDepartamento.setCantidadBanos(rs.getInt(4));
+                auxDepartamento.setCondiciones(rs.getString(5));
+                auxDepartamento.setTipoEstado(rs.getString(6));
+                auxDepartamento.setComuna(rs.getString(7));
+                auxDepartamento.setTarifa(rs.getInt(8));
+                auxLista.add(auxDepartamento);
+            }
+            rs.close();
+            conexionOracle.desconexion();
+
+        } catch (Exception ex) {
+
+        }
+
+        return auxLista;
+    }
 
 }
 

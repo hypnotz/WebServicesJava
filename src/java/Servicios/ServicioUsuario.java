@@ -80,17 +80,15 @@ public class ServicioUsuario {
         auxUsuario.setIdEstado(idEstado);
       
         auxNegocioUsuario.modificarUsuario(auxUsuario);
-
     }
-        
-         @WebMethod(operationName = "EliminarUsuario")
-     public void eliminarUsuario(@WebParam(name = "idUsuario") int idUsuario){
+         @WebMethod(operationName = "EliminarClienteUsuario")
+     public void eliminarClienteUsuario(@WebParam(name = "idUsuario") int idUsuario){
          NegocioUsuario auxNegocioUsuario = new NegocioUsuario();
          
-         auxNegocioUsuario.eliminarUsuario(idUsuario);
+         auxNegocioUsuario.eliminarClienteUsuario(idUsuario);
      }
      
-       @WebMethod(operationName = "autenticarUsuario")
+     @WebMethod(operationName = "autenticarUsuario")
         public void autenticarUsuario(@WebParam(name = "V_ID_USUARIO") int idUsuario){
         
         NegocioUsuario auxNegocioUsuario = new NegocioUsuario();

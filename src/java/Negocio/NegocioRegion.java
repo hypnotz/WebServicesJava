@@ -45,15 +45,10 @@ public class NegocioRegion {
                 //System.out.println(rs.getString(2));
                 auxLista.add(auxRegion);
             }
-
-
             rs.close();
             conexionOracle.desconexion();
-
         } catch (Exception ex) {
-
         }
-
         return auxLista;
     }
 }
