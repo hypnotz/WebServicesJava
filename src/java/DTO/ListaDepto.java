@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package DTO;
+import java.sql.Blob;
 
 /**
  *
@@ -21,8 +22,16 @@ public class ListaDepto {
     private String Comuna;
     private int tarifa;
 
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+    private byte[] image;
     
-    
+
     public int getIdDepartamento() {
         return idDepartamento;
     }

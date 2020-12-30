@@ -22,6 +22,48 @@
     <service name="ServicioProvincia">
       <implementation-class>Servicios.ServicioProvincia</implementation-class>
     </service>
+    <service name="ServicioTurismo">
+      <implementation-class>Servicios.ServicioTurismo</implementation-class>
+    </service>
+    <service name="ServicioTransporte">
+      <implementation-class>Servicios.ServicioTransporte</implementation-class>
+    </service>
+    <service name="ServicioInventario">
+      <implementation-class>Servicios.ServicioInventario</implementation-class>
+    </service>
+    <service name="ServicioMantenimiento">
+      <implementation-class>Servicios.ServicioMantenimiento</implementation-class>
+    </service>
+    <service name="ServicioCheckIn">
+      <implementation-class>Servicios.ServicioCheckIn</implementation-class>
+    </service>
+    <service name="ServicioLogin">
+      <implementation-class>Servicios.ServicioLogin</implementation-class>
+    </service>
+    <service name="ServicioReserva">
+      <implementation-class>Servicios.ServicioReserva</implementation-class>
+    </service>
+    <service name="ServicioCheckOut">
+      <implementation-class>Servicios.ServicioCheckOut</implementation-class>
+    </service>
+    <service name="ServicioCalculoPago">
+      <implementation-class>Servicios.ServicioCalculoPago</implementation-class>
+    </service>
+    <service name="ServicioAcompaniante">
+      <implementation-class>Servicios.ServicioAcompaniante</implementation-class>
+    </service>
+    <service name="ServicioDisponibilidadServicio">
+      <implementation-class>Servicios.ServicioDisponibilidadServicio</implementation-class>
+    </service>
+    <service name="ServicioReporte">
+      <implementation-class>Servicios.ServicioReporte</implementation-class>
+    </service>
+    <service name="ServicioServicioTurismo">
+      <implementation-class>Servicios.ServicioServicioTurismo</implementation-class>
+    </service>
+    <service name="ServicioServicioTransporte">
+      <implementation-class>Servicios.ServicioServicioTransporte</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>

@@ -275,4 +275,33 @@ public class NegocioCliente {
             System.out.println(ex);
         }
     }
+     
+     public String loginUser(String usuario, String password){
+       String auxUsuario = "";
+       ConexionOracle conexionOracle = new ConexionOracle();
+       Connection conn = ConexionOracle.getConnection();
+       CallableStatement callableStatement = null;
+        try {
+            String sql = "{call SP_LOGIN(?,?,?,?)}";
+            callableStatement = conn.prepareCall(sql);
+            callableStatement.registerOutParameter(1, OracleTypes.CURSOR);
+            callableStatement.setString(2, usuario);
+            callableStatement.setString(3, password);
+            callableStatement.registerOutParameter(4, java.sql.Types.VARCHAR);
+            callableStatement.executeQuery();
+            ResultSet rs  = (ResultSet) callableStatement.getObject(1);
+
+            while (rs.next()){
+                auxUsuario = rs.getString(1);
+            }
+
+            conexionOracle.desconexion();
+
+        }catch(Exception ex){
+
+            System.out.println(ex.getMessage());
+        }
+        return auxUsuario;
+
+    }
 }

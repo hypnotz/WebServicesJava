@@ -79,4 +79,11 @@ public class ServicioCliente {
         
         auxNegocio.updateUsuarioCliente(auxCliente);
     }
+    
+   @WebMethod(operationName = "loguearseByUsuario")
+    public String loguearseByUsuario(@WebParam(name="usuarito") String usuarito, @WebParam(name="contrasena") String contrasena)
+    {
+        NegocioCliente auxNegocio = new NegocioCliente();
+        return auxNegocio.loginUser(usuarito, contrasena);
+    }
 }

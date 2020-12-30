@@ -28,7 +28,7 @@ public class NegocioComuna {
         ArrayList<Comuna> auxLista = new ArrayList<Comuna>();
 
         try {
-            String sql = "{call SP_GET_PROVINCIA(?,?,?)}";
+            String sql = "{call SP_LISTAR_COMUNA(?,?,?)}";
             callableStatement = conn.prepareCall(sql);
             callableStatement.registerOutParameter(1, OracleTypes.CURSOR);
             callableStatement.registerOutParameter(2, java.sql.Types.INTEGER);

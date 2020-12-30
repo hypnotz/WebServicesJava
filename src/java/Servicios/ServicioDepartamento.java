@@ -8,6 +8,7 @@ package Servicios;
 import DTO.Departamento;
 import DTO.ListaDepto;
 import Negocio.NegocioDepartamento;
+import Negocio.NegocioReserva;
 import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -24,7 +25,8 @@ public class ServicioDepartamento {
      * This is a sample web service operation
      */
       @WebMethod(operationName = "IngresarDepto")
-    public void ingresarDepto(@WebParam(name = "direccion") String direccion, @WebParam(name = "cantidadPiezas") int cantidadPiezas, @WebParam(name = "cantidadBanos") int cantidadBanos, @WebParam(name = "condiciones") String condiciones, @WebParam(name = "idTipoEstado") int idTipoEstado, @WebParam(name = "idComuna") int idComuna, @WebParam(name = "idTarifa") int idTarifa) {
+    public void ingresarDepto(@WebParam(name = "direccion") String direccion, @WebParam(name = "cantidadPiezas") int cantidadPiezas, @WebParam(name = "cantidadBanos") int cantidadBanos, @WebParam(name = "condiciones") String condiciones, @WebParam(name = "idTipoEstado") int idTipoEstado, @WebParam(name = "idComuna") int idComuna, 
+            @WebParam(name = "idTarifa") int idTarifa, @WebParam(name = "V_PATH") String path ){
         
         NegocioDepartamento auxNegocioDepto = new NegocioDepartamento();
         Departamento auxDepartamento = new Departamento();
@@ -35,7 +37,8 @@ public class ServicioDepartamento {
         auxDepartamento.setIdTipoEstado(idTipoEstado);
         auxDepartamento.setIdComuna(idComuna);
         auxDepartamento.setIdTarifa(idTarifa);
-      
+        auxDepartamento.setPath(path);
+        
       auxNegocioDepto.insertarDepto(auxDepartamento);
     }
     
@@ -71,4 +74,12 @@ public class ServicioDepartamento {
         NegocioDepartamento auxNegocio = new NegocioDepartamento();
         return auxNegocio.listarDepto();
     }
+    
+      @WebMethod(operationName = "CancelarRegistro")
+     public int cancelarRegistro(@WebParam(name = "idReserva") int idReserva){
+         
+         NegocioReserva auxNegocioReserva = new NegocioReserva();
+         
+         return auxNegocioReserva.cancelarReserva(idReserva);
+     }
 }
